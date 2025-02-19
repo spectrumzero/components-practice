@@ -39991,7 +39991,12 @@ __webpack_require__.r(__webpack_exports__);
 
 
 function App() {
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_StarRating__WEBPACK_IMPORTED_MODULE_1__["default"], null);
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_StarRating__WEBPACK_IMPORTED_MODULE_1__["default"], {
+    style: {
+      backgroundColor: "lightblue"
+    },
+    onDoubleClick: e => alert("double click")
+  });
 }
 
 /***/ }),
@@ -40038,15 +40043,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _Star__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Star */ "./src/Star.js");
 /* harmony import */ var _lib__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./lib */ "./src/lib.js");
+function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
 
 
 
 function StarRating(_ref) {
   let {
-    totalStars = 5
+    style = {},
+    totalStars = 5,
+    ...props
   } = _ref;
   const [selectedStars, setSelectedStars] = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(0);
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, Object(_lib__WEBPACK_IMPORTED_MODULE_2__["createArray"])(totalStars).map((n, i) => /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Star__WEBPACK_IMPORTED_MODULE_1__["default"], {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", _extends({
+    style: {
+      padding: 5,
+      ...style
+    }
+  }, props), Object(_lib__WEBPACK_IMPORTED_MODULE_2__["createArray"])(totalStars).map((n, i) => /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Star__WEBPACK_IMPORTED_MODULE_1__["default"], {
     key: i,
     selected: selectedStars > i,
     onSelect: () => setSelectedStars(i + 1)
